@@ -4,11 +4,11 @@ function ToDoList() {
 
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
-
+  
     function handleInputChange(event){
         setNewTask(event.target.value);
     }
-
+  
     function addTask(){
         if(newTask.trim !== ''){
             setTasks(t => [...t, newTask]);
@@ -20,7 +20,7 @@ function ToDoList() {
         const updatedTasks = tasks.filter((element, i) => i !== index);
         setTasks(updatedTasks);
     }
-
+  
     function moveTaskUp(index){
         if(index > 0){
             const updatedTasks = [...tasks];
@@ -29,7 +29,7 @@ function ToDoList() {
             setTasks(updatedTasks)
         }
     }
-
+  
     function moveTaskDown(index){
         if(index < tasks.length - 1){
             const updatedTasks = [...tasks];
@@ -38,7 +38,7 @@ function ToDoList() {
             setTasks(updatedTasks)
         }
     }
-
+  
   return(
   <div className='to-do-list'>
     <h1>To-Do-List</h1>
@@ -46,7 +46,7 @@ function ToDoList() {
         <input
             type='text'
             placeholder='Enter the task'
-            value='newTask'
+            value={newTask}
             onChange={handleInputChange}/>
         <button
             className='add-button'
@@ -77,5 +77,6 @@ function ToDoList() {
         )}
     </ol>
   </div>);
-}
-export default ToDoList()
+  }
+
+export default ToDoList
